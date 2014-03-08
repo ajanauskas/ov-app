@@ -9,5 +9,10 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-gem "twitter-bootstrap-rails", "~> 2.2.8"
-gem "jquery-rails", "~> 3.1.0"
+gem 'twitter-bootstrap-rails', '~> 2.2.8'
+gem 'jquery-rails', '~> 3.1.0'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'rspec', '~> 2.14.1'
+end
