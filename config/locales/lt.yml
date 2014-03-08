@@ -2,3 +2,17 @@ lt:
   title: 'Orientacinės žaidynės'
   users:
     new: Nario registracija
+  helpers:
+    actions: "Veiksmai"
+    links:
+      back: "Grįžt"
+      cancel: "Atšaukti"
+      confirm: "Ar esate tikri?"
+      destroy: "Ištrinti"
+      new: "Naujas"
+      edit: "Redaguot"
+    titles:
+      edit: "Redaguot %{model}"
+      save: "Išsaugoti %{model}"
+      new: "Naujas %{model}"
+      delete: "Ištrinti %{model}"
