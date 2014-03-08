@@ -129,6 +129,7 @@ DEPENDENCIES
   mysql2 (= 0.3.13)
   pry
   rails (= 4.0.1)
+  rake (~> 10.1.1)
   rspec (~> 2.14.1)
   rspec-rails (~> 2.14.0)
   sass-rails (~> 4.0.0)
