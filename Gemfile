@@ -18,5 +18,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem "simple_form", "~> 3.0.1"
   gem 'rspec', '~> 2.14.1'
+  gem "factory_girl_rails", "~> 4.4.0"
   gem 'pry'
 end
