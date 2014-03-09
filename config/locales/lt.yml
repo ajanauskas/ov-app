@@ -1,4 +1,11 @@
 lt:
+  activemodel:
+    errors:
+      models:
+        login:
+          attributes:
+            login:
+              wrong_login: Neteisingas prisijungimo vardas arba slaptažodis
   activerecord:
     errors:
       models:
@@ -6,6 +13,7 @@ lt:
           attributes:
             password_confirmation:
               confirmation: Slaptažodžiai nesutampa
+              wrong_login: Neteisingas prisijungimo vardas arba slaptažodis
     models:
       user: Vartotojas
     attributes:
@@ -25,6 +33,14 @@ lt:
 
   welcome:
     title: 'Sveiki atvykę'
+  login:
+    login: 'Prisijungti'
   users:
     new: Nario registracija
     signup: Registruotis
+
+  simple_form:
+    placeholders:
+      login:
+        login: 'Prisijungimo vardas'
+        password: 'Slaptažodis'

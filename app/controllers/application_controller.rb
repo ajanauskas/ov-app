@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :setup_locale
+  before_filter :setup_current_user
 
   protected
 
@@ -11,6 +12,12 @@ class ApplicationController < ActionController::Base
     locale = cookies[:locale]
     locale = 'lt' unless I18n.available_locales.map(&:to_s).include?(locale)
     I18n.locale = locale
+  end
+
+  def setup_current_user
+    @current_user = User.where(id: session[:user_id]).first
+
+    session.delete(:user_id) unless @current_user
   end
 
   def render_error(message: nil, status: :internal_server_error)

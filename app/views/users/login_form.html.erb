@@ -1,0 +1,8 @@
+<h1><%= t('login.login') %></h1>
+
+<%= simple_form_for(@login, url: login_users_path, method: :put) do |f| %>
+  <%= f.input :login, label: false %>
+  <%= f.input :password, label: false, as: :password %>
+  <%= f.button :submit, I18n.t('login.login'), class: 'btn btn-primary' %>
+<% end %>
+

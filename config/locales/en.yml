@@ -6,6 +6,10 @@ en:
           attributes:
             password_confirmation:
               confirmation: Passwords do not match
+        login:
+          attributes:
+            login:
+              wrong_login: Wrong username or password
     models:
       user: User
     attributes:
@@ -24,6 +28,14 @@ en:
   title: 'OV'
   welcome:
     title: 'Welcome!'
+  login:
+    login: 'Login'
   users:
     new: New user
     signup: Signup
+
+  simple_form:
+    placeholders:
+      login:
+        login: 'Login'
+        password: 'Password'
