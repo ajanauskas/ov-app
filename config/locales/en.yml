@@ -1,4 +1,11 @@
 en:
+  errors:
+    http:
+      title: "You broke it..."
+      internal_server_error: "Something went wrong! Administrators will be informed about this error and will get it fixed."
+      conflict: "Information passed was wrong. Please recheck information you're submiting"
   title: 'OV'
+  welcome:
+    title: 'Welcome!'
   users:
     new: New user

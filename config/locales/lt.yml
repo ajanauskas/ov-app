@@ -1,4 +1,11 @@
 lt:
+  errors:
+    http:
+      title: "Oi! Kažkas netikėto įvyko"
+      internal_server_error: "Kažkas nutiko netikėto, administracijai bus pranešta apie šią klaidą ir ji bus pataisyta"
+      conflict: "Mums buvo paduoti blogi duomenys. Patikrinkite ar gerai suvedėt informaciją"
   title: 'Orientacinės žaidynės'
+  welcome:
+    title: 'Sveiki atvykę'
   users:
     new: Nario registracija

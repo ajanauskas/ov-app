@@ -11,6 +11,13 @@
           <%= link_to I18n.t('users.new'), new_user_path %>
         </li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% I18n.available_locales.each do |locale| %>
+          <li>
+            <%= link_to locale, locale_path(locale: locale), data: { method: :put } %>
+          </li>
+        <% end %>
+      </ul>
     </nav>
   </div>
 </nav>
