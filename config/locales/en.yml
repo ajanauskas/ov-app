@@ -26,6 +26,8 @@ en:
       conflict: "Information passed was wrong. Please recheck information you're submiting"
 
   title: 'OV'
+  change_locale: Change locale
+
   welcome:
     title: 'Welcome!'
   login:

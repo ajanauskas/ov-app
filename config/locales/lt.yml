@@ -30,6 +30,7 @@ lt:
       conflict: "Mums buvo paduoti blogi duomenys. Patikrinkite ar gerai suvedėt informaciją"
 
   title: 'Orientacinės žaidynės'
+  change_locale: Pakeisti kalbą
 
   welcome:
     title: 'Sveiki atvykę'
