@@ -1,11 +1,29 @@
 en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: Passwords do not match
+    models:
+      user: User
+    attributes:
+      user:
+        login: Login
+        email: Email
+        password: Password
+        password_confirmation: Confirm password
+
   errors:
     http:
       title: "You broke it..."
       internal_server_error: "Something went wrong! Administrators will be informed about this error and will get it fixed."
       conflict: "Information passed was wrong. Please recheck information you're submiting"
+
   title: 'OV'
   welcome:
     title: 'Welcome!'
   users:
     new: New user
+    signup: Signup

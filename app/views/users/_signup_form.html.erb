@@ -1,7 +1,7 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :login %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.button :submit %>
+  <%= f.input :email, as: :email %>
+  <%= f.input :password, as: :password %>
+  <%= f.input :password_confirmation, as: :password %>
+  <%= f.button :submit, I18n.t('users.signup'), class: 'btn btn-primary' %>
 <% end %>

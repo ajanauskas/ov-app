@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
 
   validates :login, :email, presence: true
-  validates :password, length: { in: 6..20 }, presence: true, on: :create
+  validates :password, :password_confirmation, length: { in: 6..20 }, presence: true, on: :create
 end
