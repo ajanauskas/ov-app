@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id) unless @current_user
   end
 
+  def check_authentication
+    render_error(status: :forbidden) unless @current_user
+  end
+
   def render_error(message: nil, status: :internal_server_error)
     message ||= I18n.t(status, scope: 'errors.http')
 

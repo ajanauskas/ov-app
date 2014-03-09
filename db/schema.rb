@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309153218) do
+ActiveRecord::Schema.define(version: 20140309154349) do
+
+  create_table "game_owners", force: true do |t|
+    t.integer "game_id", null: false
+    t.integer "user_id", null: false
+  end
+
+  create_table "games", force: true do |t|
+    t.string   "title",       limit: 100, null: false
+    t.text     "description",             null: false
+    t.datetime "start"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "login",           limit: 20, null: false

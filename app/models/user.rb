@@ -4,4 +4,9 @@ class User < ActiveRecord::Base
 
   validates :login, :email, presence: true
   validates :password, :password_confirmation, length: { in: 6..20 }, presence: true, on: :create
+
+  has_many :games, through: :game_owners,
+                   class_name: 'Game',
+                   foreign_key: 'game_id',
+                   primary_key: 'user_id'
 end

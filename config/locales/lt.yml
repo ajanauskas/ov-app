@@ -26,6 +26,7 @@ lt:
   errors:
     http:
       title: "Oi! Kažkas netikėto įvyko"
+      forbidden: "Jūs neturite pakankamai prieigos teisių norint peržiūrėt šį puslapį"
       internal_server_error: "Kažkas nutiko netikėto, administracijai bus pranešta apie šią klaidą ir ji bus pataisyta"
       conflict: "Mums buvo paduoti blogi duomenys. Patikrinkite ar gerai suvedėt informaciją"
 
