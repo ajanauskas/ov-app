@@ -10,6 +10,7 @@ gem "bootstrap-sass", "~> 3.1.1.0"
 gem 'sass-rails', '~> 4.0.0'
 gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 gem 'jquery-rails', '~> 3.1.0'
+gem "ckeditor", "~> 4.0.10"
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'
