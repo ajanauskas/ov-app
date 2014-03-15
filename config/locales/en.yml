@@ -30,12 +30,14 @@ en:
   change_locale: Change locale
 
   welcome:
+    index: Home
     title: 'Welcome!'
   login:
     login: 'Login'
   users:
     new: New user
     signup: Signup
+    logout: Logout
 
   simple_form:
     placeholders:

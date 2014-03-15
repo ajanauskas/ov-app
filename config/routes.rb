@@ -4,7 +4,7 @@ OvApp::Application.routes.draw do
   resources :users, only: [:new, :create] do
     collection do
       get :login, to: :login_form
-      put :login
+      put :login, :logout
     end
   end
 

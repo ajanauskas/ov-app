@@ -11,6 +11,9 @@
 
     <div class="navbar-collapse collapse" id="main-navigation-bar">
       <ul class="nav navbar-nav">
+        <li>
+          <%= link_to I18n.t('welcome.index'), root_path %>
+        </li>
         <% if @current_user.nil? %>
           <li>
             <%= link_to I18n.t('login.login'), login_users_path %>
@@ -24,7 +27,14 @@
           </li>
         <% end %>
       </ul>
-      <%= render 'layouts/change_locale_dropdown' %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if @current_user %>
+          <li>
+            <%= link_to I18n.t('users.logout'), logout_users_path, data: { method: :put } %>
+          </li>
+        <% end %>
+        <%= render 'layouts/change_locale_dropdown' %>
+      </ul>
     </div>
   </div>
 </nav>

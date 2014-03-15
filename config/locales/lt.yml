@@ -34,12 +34,14 @@ lt:
   change_locale: Pakeisti kalbą
 
   welcome:
+    index: Pagrindinis puslapis
     title: 'Sveiki atvykę'
   login:
     login: 'Prisijungti'
   users:
     new: Nario registracija
     signup: Registruotis
+    logout: Atsijungt
 
   simple_form:
     placeholders:

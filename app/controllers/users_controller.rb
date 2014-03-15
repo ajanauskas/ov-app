@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   class WrongPasswordError < StandardError; end
 
-  before_filter :skip_login_if_logged, only: [:new, :create, :login_form, :login]
+  before_filter :skip_if_logged, only: [:new, :create, :login_form, :login]
 
   def new
     @user = User.new
@@ -38,9 +38,14 @@ class UsersController < ApplicationController
     render :login_form, status: :conflict
   end
 
+  def logout
+    session.delete(:user_id)
+    redirect_to root_path
+  end
+
   private
 
-  def skip_login_if_logged
+  def skip_if_logged
     redirect_to root_path if @current_user
   end
 

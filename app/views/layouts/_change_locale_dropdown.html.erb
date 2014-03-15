@@ -1,14 +1,12 @@
-<ul class="nav navbar-nav navbar-right">
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      <%= t('change_locale') %> <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      <% I18n.available_locales.each do |locale| %>
-        <li>
-          <%= link_to locale, locale_path(locale: locale), data: { method: :put } %>
-        </li>
-      <% end %>
-    </ul>
-  </li>
-</ul>
+<li class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    <%= t('change_locale') %> <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% I18n.available_locales.each do |locale| %>
+      <li>
+        <%= link_to locale, locale_path(locale: locale), data: { method: :put } %>
+      </li>
+    <% end %>
+  </ul>
+</li>
