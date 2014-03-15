@@ -9,4 +9,5 @@ OvApp::Application.routes.draw do
   end
 
   resource :locale, only: [:update]
+  resources :games
 end
