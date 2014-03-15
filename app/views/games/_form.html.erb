@@ -1,0 +1,6 @@
+<%= simple_form_for @game do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :start, as: :datetime %>
+  <%= f.submit t('.create'), class: 'btn btn-primary' %>
+<% end %>

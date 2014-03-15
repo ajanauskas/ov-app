@@ -16,7 +16,12 @@ lt:
               wrong_login: Neteisingas prisijungimo vardas arba slaptažodis
     models:
       user: Vartotojas
+      game: Žaidimas
     attributes:
+      game:
+        title: Pavadinimas
+        description: Apibūdinimas
+        start: Starto data
       user:
         login: Prisijungimo vardas
         email: Elektroninis paštas
@@ -42,6 +47,11 @@ lt:
     new: Nario registracija
     signup: Registruotis
     logout: Atsijungt
+  games:
+    title: Žaidimai
+    new: Kurti naują žaidimą
+    form:
+      create: Sukurti žaidimą
 
   simple_form:
     placeholders:
