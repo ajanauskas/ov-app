@@ -15,6 +15,9 @@
           <li>
             <%= link_to I18n.t('login.login'), login_users_path %>
           </li>
+          <li>
+            <%= link_to I18n.t('users.signup'), new_user_path %>
+          </li>
         <% else %>
           <li>
             <%= link_to @current_user.login, '#' %>
