@@ -74,6 +74,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -150,6 +152,7 @@ DEPENDENCIES
   jquery-rails (~> 3.1.0)
   mysql2 (= 0.3.13)
   pry
+  quiet_assets
   rails (= 4.0.1)
   rake (~> 10.1.1)
   rspec (~> 2.14.1)
