@@ -1,0 +1,7 @@
+<h1>
+  <% title = t('games.my.title') %>
+  <% content_for(:page_title, title) %>
+  <%= title %>
+</h1>
+
+<%= render partial: 'game_row', collection: @games, as: :game %>

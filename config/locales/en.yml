@@ -38,6 +38,11 @@ en:
     new: New user
     signup: Signup
     logout: Logout
+  games:
+    title: Games
+    my:
+      title: My games
+    new: Create new game
 
   simple_form:
     placeholders:

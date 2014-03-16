@@ -1,0 +1,11 @@
+<h1>
+  <% title = t('games.edit', game: @game.title) %>
+  <% content_for(:page_title, title) %>
+  <%= title %>
+</h1>
+
+<%= render 'form' %>
+
+<% content_for :bottom_scripts do %>
+  <%= javascript_include_tag 'controllers/games' %>
+<% end %>

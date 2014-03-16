@@ -49,9 +49,15 @@ lt:
     logout: Atsijungt
   games:
     title: Žaidimai
+    my:
+      title: Mano žaidimai
     new: Kurti naują žaidimą
-    form:
-      create: Sukurti žaidimą
+    edit: Redaguoti žaidimą '%{game}'
+
+  helpers:
+    submit:
+      create: "Sukurti %{model}"
+      update: "Atnaujinti %{model}"
 
   simple_form:
     placeholders:
