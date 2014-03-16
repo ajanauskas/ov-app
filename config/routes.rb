@@ -13,5 +13,7 @@ OvApp::Application.routes.draw do
     collection do
       get :my
     end
+
+    resources :levels, controller: 'game_levels'
   end
 end

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316133032) do
+ActiveRecord::Schema.define(version: 20140316164831) do
+
+  create_table "game_levels", force: true do |t|
+    t.integer "game_id",     null: false
+    t.integer "sort",        null: false
+    t.string  "description", null: false
+  end
+
+  add_index "game_levels", ["game_id"], name: "index_game_levels_on_game_id", using: :btree
 
   create_table "game_owners", force: true do |t|
     t.integer "game_id", null: false

@@ -40,9 +40,11 @@ en:
     logout: Logout
   games:
     title: Games
+    new: Create new game
     my:
       title: My games
-    new: Create new game
+    levels:
+      title: Game '%{game}' levels
 
   simple_form:
     placeholders:

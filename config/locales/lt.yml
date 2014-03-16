@@ -17,7 +17,11 @@ lt:
     models:
       user: Vartotojas
       game: Žaidimas
+      game_level: Žaidimo lygis
     attributes:
+      game_level:
+        sort: Eilė
+        description: Užduotis
       game:
         title: Pavadinimas
         description: Apibūdinimas
@@ -49,10 +53,13 @@ lt:
     logout: Atsijungt
   games:
     title: Žaidimai
-    my:
-      title: Mano žaidimai
     new: Kurti naują žaidimą
     edit: Redaguoti žaidimą '%{game}'
+    my:
+      title: Mano žaidimai
+    levels:
+      title: Žaidimo '%{game}' lygiai
+      new: Kurti naują lygį
 
   helpers:
     submit:
