@@ -4,4 +4,8 @@ class Game < ActiveRecord::Base
                     class_name: 'User',
                     foreign_key: 'user_id',
                     primary_key: 'game_id'
+
+  validates :title, presence: true, length: { in: 10..100 }
+  validates :description, presence: true
+  validates :start, presence: true
 end
