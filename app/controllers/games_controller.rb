@@ -13,13 +13,15 @@ class GamesController < ApplicationController
     if created
       redirect_to root_path
     else
-      render :new
+      render :new, status: :conflict
     end
   end
 
   private
 
   def game_params
-    params.require(:game).permit(:title, :description, :start, :active)
+    if params[:game].present?
+      params.require(:game).permit(:title, :description, :start, :active)
+    end
   end
 end
