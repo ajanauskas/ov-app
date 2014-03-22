@@ -28,11 +28,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    factory = Games::Factory.new(@current_user, game_params)
-    created = factory.create
-    @game = factory.game
+    @game = Game.new(game_params)
 
-    if created
+    if Game.create_with_game_owner(@game, @current_user)
       redirect_to root_path
     else
       render :new, status: :conflict

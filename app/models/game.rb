@@ -11,4 +11,18 @@ class Game < ActiveRecord::Base
   validates :title, presence: true, length: { in: 10..100 }
   validates :description, presence: true
   validates :start, presence: true
+
+  def self.create_with_game_owner(game, owner)
+    ActiveRecord::Base.transaction do
+      game.save!
+      game_owner = GameOwner.new
+      game_owner.user_id = owner.id
+      game_owner.game_id = game.id
+      game_owner.save!
+    end
+
+    true
+  rescue ActiveRecord::RecordInvalid
+    false
+  end
 end
