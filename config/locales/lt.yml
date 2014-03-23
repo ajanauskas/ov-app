@@ -18,14 +18,18 @@ lt:
       user: Vartotojas
       game: Žaidimas
       game_level: Žaidimo lygis
+      game_level_prompt: Žaidimo lygio patarimas
     attributes:
-      game_level:
-        sort: Eilė
-        description: Užduotis
       game:
         title: Pavadinimas
         description: Apibūdinimas
         start: Starto data
+      game_level:
+        sort: Eilė
+        description: Užduotis
+      game_level_prompt:
+        appears_in: Pasirodymo laikas nuo žaidimo pradžios
+        description: Patarimas
       user:
         login: Prisijungimo vardas
         email: Elektroninis paštas
@@ -59,7 +63,14 @@ lt:
       title: Mano žaidimai
     levels:
       title: Žaidimo '%{game}' lygiai
+      edit: Redaguoti '%{game}' lygį
       new: Kurti naują lygį
+      prompts:
+        title: 'Patarimai'
+  common:
+    edit: Redaguoti
+    delete: Ištrinti
+    are_you_sure: Ar tikrai norite tą padaryt?
 
   helpers:
     submit:

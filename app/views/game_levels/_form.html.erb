@@ -1,5 +1,17 @@
-<%= simple_form_for @game_level do |f| %>
+<% form_url = @game_level.new_record? ? game_levels_path(game_id: @game.id) : game_level_path(game_id: @game.id, id: @game_level.id) %>
+
+<%= simple_form_for(@game_level, url: form_url) do |f| %>
   <%= f.input :sort, as: :integer %>
-  <%= f.input :description, as: :text %>
+  <%= f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
+
+  <legend>
+    <%= t('games.levels.prompts.title') %>
+  </legend>
+
+  <%= f.simple_fields_for :game_level_prompts do |p| %>
+    <%= p.input :appears_in, as: :integer %>
+    <%= p.input :description, as: :text %>
+  <% end %>
+
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

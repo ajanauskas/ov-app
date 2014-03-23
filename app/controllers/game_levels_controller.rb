@@ -10,6 +10,13 @@ class GameLevelsController < ApplicationController
   end
 
   def create
+    @game_level = game.levels.build(game_level_params)
+
+    if @game_level.save
+      redirect_to game_levels_path
+    else
+      render :new, status: :conflict
+    end
   end
 
   def edit
@@ -32,7 +39,13 @@ class GameLevelsController < ApplicationController
 
   def game_level_params
     if params[:game_level]
-      params.require(:game_level).permit(:sort, :description)
+      params
+        .require(:game_level)
+        .permit(:sort, :description, game_level_prompt_attributes: game_level_prompt_attributes)
     end
+  end
+
+  def game_level_prompt_attributes
+    [:description, :appears_in]
   end
 end

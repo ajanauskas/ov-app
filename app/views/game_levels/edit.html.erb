@@ -1,0 +1,7 @@
+<h1>
+  <% title = t('games.levels.edit', game: @game.title) %>
+  <% content_for(:page_title, title) %>
+  <%= title %>
+</h1>
+
+<%= render 'form' %>
