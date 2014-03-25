@@ -14,6 +14,8 @@ OvApp::Application.routes.draw do
       get :my
     end
 
-    resources :levels, controller: 'game_levels'
+    resources :levels, controller: 'game_levels' do
+      resources :prompts, controller: 'game_level_prompts'
+    end
   end
 end

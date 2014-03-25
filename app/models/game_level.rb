@@ -7,6 +7,4 @@ class GameLevel < ActiveRecord::Base
 
   validates :sort, presence: true
   validates :description, presence: true
-
-  accepts_nested_attributes_for :game_level_prompts
 end

@@ -5,3 +5,41 @@
 </h1>
 
 <%= render 'form' %>
+
+<legend>
+  <%= t('games.levels.prompts.title') %>
+</legend>
+
+<table class="table table-striped">
+  <thead>
+    <th class="col-sm-1">
+      <%= GameLevelPrompt.human_attribute_name(:appears_in) %>
+    </th>
+    <th class="col-sm-3">
+      <%= GameLevelPrompt.human_attribute_name(:description) %>
+    </th>
+    <th class="col-sm-1">
+    </th>
+  </thead>
+  <tbody>
+    <% @game_level.prompts.each do |prompt| %>
+      <tr>
+        <td>
+          <%= prompt.appears_in %>
+        </td>
+        <td>
+          <%= prompt.description %>
+        </td>
+        <td>
+          <%= link_to t('common.edit'),
+                edit_game_level_prompt_path(game_id: @game.id, level_id: prompt.id, id: prompt.id),
+                class: 'btn btn-default' %>
+          <%= link_to t('common.delete'),
+                game_level_prompt_path(game_id: @game.id, level_id: prompt.id, id: prompt.id),
+                class: 'btn btn-danger',
+                data: { method: :delete, confirm: I18n.t('common.are_you_sure') } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

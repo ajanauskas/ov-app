@@ -20,17 +20,35 @@ class GameLevelsController < ApplicationController
   end
 
   def edit
-    @game_level = game.levels.find(params[:id])
+    @game_level = find_game_level
   end
 
   def update
-    @game_level = game.levels.find(params[:id])
+    @game_level = find_game_level
+    @game_level.attributes = game_level_params
+
+    if @game_level.save
+      redirect_to game_levels_path
+    else
+      render :edit, status: :conflict
+    end
+  end
+
+  def destroy
+    @game_level = find_game_level
+    @game_level.destroy
+
+    redirect_to edit_game_path(game)
   end
 
   private
 
   def game
     @game ||= @current_user.games.find(params[:game_id])
+  end
+
+  def find_game_level
+    game.levels.find(params[:id])
   end
 
   def suggested_sort
@@ -41,11 +59,7 @@ class GameLevelsController < ApplicationController
     if params[:game_level]
       params
         .require(:game_level)
-        .permit(:sort, :description, game_level_prompt_attributes: game_level_prompt_attributes)
+        .permit(:sort, :description)
     end
-  end
-
-  def game_level_prompt_attributes
-    [:description, :appears_in]
   end
 end
