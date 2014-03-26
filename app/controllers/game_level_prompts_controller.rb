@@ -34,7 +34,7 @@ class GameLevelPromptsController < ApplicationController
     @game_level_prompt = find_game_level_prompt
     @game_level_prompt.destroy
 
-    reditect_to edit_game_level_path(game_id: game.id, id: level.id)
+    reditect_to edit_game_level_path(game_id: game.id, id: game_level.id)
   end
 
   private
