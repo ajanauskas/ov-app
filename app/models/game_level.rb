@@ -1,7 +1,7 @@
 class GameLevel < ActiveRecord::Base
   belongs_to :game
 
-  has_many :game_level_prompts
+  has_many :prompts, class_name: 'GameLevelPrompt'
 
   default_scope -> { order('sort ASC') }
 

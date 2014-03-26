@@ -1,0 +1,10 @@
+<% form_url = @game_level_prompt.new_record? ?
+    game_level_prompts_path(game_id: @game.id, level_id: @game_level.id) :
+    game_level_prompt_path(game_id: @game.id, level_id: @game_level.id, id: @game_level_prompt.id)
+%>
+
+<%= simple_form_for(@game_level_prompt, url: form_url) do |f| %>
+  <%= f.input :appears_in, as: :integer %>
+  <%= f.input :description, as: :text %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

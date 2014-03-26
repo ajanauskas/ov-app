@@ -24,7 +24,7 @@ class GameLevelPromptsController < ApplicationController
     @game_level_prompt.attributes = game_level_prompt_params
 
     if @game_level_prompt.save
-      redirect_to edit_game_level_prompt(game_id: game.id, level_id: level.id, id: @game_level_prompt.id)
+      redirect_to edit_game_level_path(game_id: game.id, id: game_level.id)
     else
       render :edit, status: :conflict
     end

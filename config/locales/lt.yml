@@ -28,7 +28,7 @@ lt:
         sort: Eilė
         description: Užduotis
       game_level_prompt:
-        appears_in: Pasirodymo laikas nuo žaidimo pradžios
+        appears_in: Pasirodymo laikas (minutėm)
         description: Patarimas
       user:
         login: Prisijungimo vardas
@@ -66,6 +66,8 @@ lt:
       edit: Redaguoti '%{game}' lygį
       new: Kurti naują lygį
       prompts:
+        new: Naujas patarimas
+        edit: Redaguoti patarimą
         title: 'Patarimai'
   common:
     edit: Redaguoti
