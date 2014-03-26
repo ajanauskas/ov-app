@@ -59,7 +59,7 @@ class GameLevelsController < ApplicationController
     if params[:game_level]
       params
         .require(:game_level)
-        .permit(:sort, :description)
+        .permit(:sort, :description, :code)
     end
   end
 end

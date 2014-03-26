@@ -6,7 +6,7 @@ class Game < ActiveRecord::Base
                     foreign_key: 'user_id',
                     primary_key: 'game_id'
 
-  has_many :levels, class_name: 'GameLevel'
+  has_many :levels, class_name: 'GameLevel', dependent: :destroy
 
   validates :title, presence: true, length: { in: 10..100 }
   validates :description, presence: true

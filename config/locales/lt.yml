@@ -27,6 +27,7 @@ lt:
       game_level:
         sort: Eilė
         description: Užduotis
+        code: Kodas
       game_level_prompt:
         appears_in: Pasirodymo laikas (minutėm)
         description: Patarimas
