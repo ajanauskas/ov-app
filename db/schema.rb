@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326093959) do
+ActiveRecord::Schema.define(version: 20140405153422) do
 
   create_table "game_level_prompts", force: true do |t|
     t.integer "game_level_id", null: false
@@ -45,6 +45,33 @@ ActiveRecord::Schema.define(version: 20140326093959) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "team_game_participations", force: true do |t|
+    t.integer  "team_id",               null: false
+    t.integer  "game_id",               null: false
+    t.integer  "current_game_level_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_members", force: true do |t|
+    t.integer  "team_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
+  add_index "team_members", ["user_id", "team_id"], name: "index_team_members_on_user_id_and_team_id", using: :btree
+
+  create_table "teams", force: true do |t|
+    t.integer  "owner_id",   null: false
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["owner_id"], name: "index_teams_on_owner_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "login",           limit: 20, null: false

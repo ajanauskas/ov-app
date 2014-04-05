@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
                    class_name: 'Game',
                    foreign_key: 'game_id',
                    primary_key: 'user_id'
+
+  belongs_to :team_members
+
+  def team
+    @team ||= team_members.first.team
+  end
 end
