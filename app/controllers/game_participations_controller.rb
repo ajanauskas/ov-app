@@ -11,9 +11,16 @@ class GameParticipationsController < ApplicationController
   private
 
   def create_team_and_team_participation
-    unless @current_user.team
-      Team.dummy_team_for(@current_user)
-      @current_user.reload
-    end
+    Team.create_dummy_team_for(@current_user)
+
+    @participation = TeamGameParticipation
+      .create_participation_for(
+        user: @current_user,
+        game: game
+      )
+  end
+
+  def game
+    @game ||= Game.find(params[:game_id])
   end
 end

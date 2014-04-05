@@ -10,6 +10,8 @@ OvApp::Application.routes.draw do
 
   resource :locale, only: [:update]
   resources :games do
+    resource :team_game_participation, path: '/play', only: [:show, :update]
+
     collection do
       get :my
     end
@@ -18,6 +20,4 @@ OvApp::Application.routes.draw do
       resources :prompts, controller: 'game_level_prompts'
     end
   end
-
-  resource :game_participation, path: '/play', only: [:show, :update]
 end
