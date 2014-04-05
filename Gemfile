@@ -19,6 +19,7 @@ end
 
 group :development, :test do
   gem 'quiet_assets'
+  gem 'guard-rspec'
   gem 'rspec-rails', '~> 2.14.0'
   gem "simple_form", "~> 3.0.1"
   gem 'rspec', '~> 2.14.1'
