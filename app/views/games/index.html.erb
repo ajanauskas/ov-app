@@ -1,3 +1,16 @@
 <h1>
-  <%= t('games.title') %>
+  <%= title = t('games.upcoming') %>
+  <% content_for(:page_title, title) %>
 </h1>
+
+<% @games.each do |game| %>
+  <h3><%= game.title %></h3>
+
+  <legend></legend>
+
+  <div>
+    <%= raw game.description %>
+  </div>
+
+  <%= link_to t('games.participate'), game_participation_path, class: 'btn btn-primary' %>
+<% end %>

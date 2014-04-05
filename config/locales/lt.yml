@@ -58,6 +58,8 @@ lt:
     logout: Atsijungt
   games:
     title: Žaidimai
+    upcoming: Ateinantys žaidimai
+    participate: Dalyvauti
     new: Kurti naują žaidimą
     edit: Redaguoti žaidimą '%{game}'
     my:

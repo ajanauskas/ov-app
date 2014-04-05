@@ -1,5 +1,5 @@
 OvApp::Application.routes.draw do
-  root 'welcome#index'
+  root 'games#index'
 
   resources :users, only: [:new, :create] do
     collection do
@@ -18,4 +18,6 @@ OvApp::Application.routes.draw do
       resources :prompts, controller: 'game_level_prompts'
     end
   end
+
+  resource :game_participation, path: '/play', only: [:show, :update]
 end

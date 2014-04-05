@@ -12,6 +12,8 @@ class Game < ActiveRecord::Base
   validates :description, presence: true
   validates :start, presence: true
 
+  scope :active, -> { where(active: true) }
+
   def self.create_with_game_owner(game, owner)
     ActiveRecord::Base.transaction do
       game.save!

@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
-  before_filter :check_authentication
+  before_filter :check_authentication, except: [:index]
 
   def index
-    @games = Game.all
+    @games = Game.active.order(start: :asc)
   end
 
   def my
