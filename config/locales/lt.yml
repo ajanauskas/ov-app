@@ -81,9 +81,3 @@ lt:
     submit:
       create: "Sukurti %{model}"
       update: "Atnaujinti %{model}"
-
-  simple_form:
-    placeholders:
-      login:
-        login: 'Prisijungimo vardas'
-        password: 'Slaptažodis'

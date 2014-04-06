@@ -45,9 +45,3 @@ en:
       title: My games
     levels:
       title: Game '%{game}' levels
-
-  simple_form:
-    placeholders:
-      login:
-        login: 'Login'
-        password: 'Password'

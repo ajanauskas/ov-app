@@ -1,0 +1,13 @@
+lt:
+  simple_form:
+    "yes": Taip
+    "no": Ne
+    required:
+      text: reikalingas
+      mark: "*"
+    error_notification:
+      default_message: "Patikrinkite ir ištaisykite klaidas:"
+    placeholders:
+      login:
+        login: 'Prisijungimo vardas'
+        password: 'Slaptažodis'
