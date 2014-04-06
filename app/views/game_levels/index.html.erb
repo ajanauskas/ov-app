@@ -17,6 +17,9 @@
       <%= GameLevel.human_attribute_name(:description) %>
     </th>
     <th class="col-sm-1">
+      <%= GameLevel.human_attribute_name(:code) %>
+    </th>
+    <th class="col-sm-1">
     </th>
   </thead>
   <tbody>
@@ -27,6 +30,9 @@
         </td>
         <td>
           <%= game_level.description %>
+        </td>
+        <td>
+          <%= game_level.code %>
         </td>
         <td>
           <%= link_to t('common.edit'),

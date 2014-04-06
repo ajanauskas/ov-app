@@ -52,7 +52,7 @@ class GameLevelsController < ApplicationController
   end
 
   def suggested_sort
-    @game.levels.last.try(:sort) || 1
+    (@game.levels.last.try(:sort) || 0) + 1
   end
 
   def game_level_params
