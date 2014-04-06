@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.0.4'
 gem "rake", "~> 10.1.1"
 gem 'mysql2', '0.3.13'
 gem 'bcrypt-ruby', '~> 3.1.2'
