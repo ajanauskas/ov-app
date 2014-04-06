@@ -10,7 +10,10 @@ OvApp::Application.routes.draw do
 
   resource :locale, only: [:update]
   resources :games do
-    resource :team_game_participation, path: '/play', only: [:show, :update]
+    resource :team_game_participation,
+             path: '/play',
+             only: [:show, :update],
+             as: :participation
 
     collection do
       get :my

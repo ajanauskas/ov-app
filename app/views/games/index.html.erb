@@ -12,5 +12,8 @@
     <%= raw game.description %>
   </div>
 
-  <%= link_to t('games.participate'), game_participation_path, class: 'btn btn-primary' %>
+  <%= link_to t('games.participate'),
+              game_participation_path(game_id: game.id),
+              class: 'btn btn-primary' %>
+
 <% end %>
