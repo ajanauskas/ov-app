@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def setup_locale
     locale = cookies[:locale]
-    locale = 'lt' unless I18n.available_locales.map(&:to_s).include?(locale)
+    locale = DEFAULT_LOCALE unless SUPPORTED_LOCALES.include?(locale)
     I18n.locale = locale
   end
 
