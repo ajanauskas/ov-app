@@ -72,6 +72,8 @@ lt:
         new: Naujas patarimas
         edit: Redaguoti patarimą
         title: 'Patarimai'
+  game_participations:
+    level: "%{level} Lygis"
   common:
     edit: Redaguoti
     delete: Ištrinti

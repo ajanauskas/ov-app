@@ -1,0 +1,26 @@
+<h1><%= t('game_participations.level', level: @participation.current_game_level.sort) %></h1>
+
+<div>
+  <%= @participation.current_game_level.description %>
+</div>
+
+<% @participation.current_game_level.prompts.each do |prompt| %>
+  <% if prompt.visible_for?(@participation) %>
+    <p>
+      <%= prompt.description %>
+    </p>
+  <% else %>
+    <p class="js-countdown" data-countdown-until="<%= prompt.appears_at(@participation).iso8601 %>">
+    </p>
+  <% end %>
+<% end %>
+
+<%= content_tag(:bottom_scripts) do %>
+  <%= javascript_include_tag 'app/ov' %>
+
+  <script>
+    OV.Countdown.initialize({
+      $el: $('.js-countdown')
+    });
+  </script>
+<% end %>

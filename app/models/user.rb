@@ -11,9 +11,10 @@ class User < ActiveRecord::Base
                    foreign_key: 'game_id',
                    primary_key: 'user_id'
 
-  belongs_to :team_members
+  has_many :team_members
 
   def team
-    @team ||= team_members.first.team
+    return nil unless team_members
+    team_members.first.team
   end
 end
