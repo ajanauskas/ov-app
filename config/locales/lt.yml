@@ -1,11 +1,20 @@
 lt:
   activemodel:
+    models:
+      game_level_code: Kodas
+    attributes:
+      game_level_code:
+        code: Kodas
     errors:
       models:
         login:
           attributes:
             login:
               wrong_login: Neteisingas prisijungimo vardas arba slaptažodis
+        game_level_code:
+          attributes:
+            code:
+              invalid: Neteisingas kodas
   activerecord:
     errors:
       models:
@@ -74,6 +83,7 @@ lt:
         title: 'Patarimai'
   game_participations:
     level: "%{level} Lygis"
+    enter_code: Įvesti kodą
   common:
     edit: Redaguoti
     delete: Ištrinti

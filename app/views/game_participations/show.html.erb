@@ -1,7 +1,12 @@
 <h1><%= t('game_participations.level', level: @participation.current_game_level.sort) %></h1>
 
+<%= simple_form_for @game_level_code, url: game_participation_path(game_id: @participation.game.id), method: :put do |f| %>
+  <%= f.input :code %>
+  <%= f.submit t('game_participations.enter_code'), class: 'btn btn-primary' %>
+<% end %>
+
 <div>
-  <%= @participation.current_game_level.description %>
+  <%= raw @participation.current_game_level.description %>
 </div>
 
 <% @participation.current_game_level.prompts.each do |prompt| %>

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :team_members
 
   def team
-    return nil unless team_members
+    return nil unless team_members.any?
     team_members.first.team
   end
 end
