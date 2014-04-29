@@ -4,4 +4,36 @@
   <%= title %>
 </h1>
 
-<%= render partial: 'game_row', collection: @games, as: :game %>
+<table class="table table-striped">
+  <thead>
+    <th class="col-sm-2">
+      <%= Game.human_attribute_name(:title) %>
+    </th>
+    <th class="col-sm-2">
+      <%= Game.human_attribute_name(:start) %>
+    </th>
+    <th class="col-sm-1">
+    </th>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td>
+          <%= game.title %>
+        </td>
+        <td>
+          <%= game.start %>
+        </td>
+        <td>
+          <%= link_to t('common.edit'),
+                edit_game_path(game),
+                class: 'btn btn-default' %>
+          <%= link_to t('common.delete'),
+                game_path(game),
+                class: 'btn btn-danger',
+                data: { method: :delete, confirm: I18n.t('common.are_you_sure') } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
