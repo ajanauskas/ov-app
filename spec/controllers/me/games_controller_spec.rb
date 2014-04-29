@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GamesController do
+describe Me::GamesController do
   before do
     session[:user_id] = current_user
   end

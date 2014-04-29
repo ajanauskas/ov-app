@@ -1,8 +1,10 @@
 <h1>
-  <% title = t('games.my.title') %>
+  <% title = t('me.games.title') %>
   <% content_for(:page_title, title) %>
   <%= title %>
 </h1>
+
+<%= link_to t('me.games.new'), new_my_game_path, class: 'btn btn-default' %>
 
 <table class="table table-striped">
   <thead>
@@ -26,10 +28,10 @@
         </td>
         <td>
           <%= link_to t('common.edit'),
-                edit_game_path(game),
+                edit_my_game_path(game),
                 class: 'btn btn-default' %>
           <%= link_to t('common.delete'),
-                game_path(game),
+                my_game_path(game),
                 class: 'btn btn-danger',
                 data: { method: :delete, confirm: I18n.t('common.are_you_sure') } %>
         </td>

@@ -33,6 +33,7 @@ lt:
         title: Pavadinimas
         description: Apibūdinimas
         start: Starto data
+        active: Aktyvus
       game_level:
         sort: Eilė
         description: Užduotis
@@ -65,22 +66,23 @@ lt:
     new: Nario registracija
     signup: Registruotis
     logout: Atsijungt
+  me:
+    games:
+      title: Mano žaidimai
+      new: Kurti naują žaidimą
+      edit: Redaguoti žaidimą '%{game}'
+      levels:
+        title: Žaidimo '%{game}' lygiai
+        edit: Redaguoti '%{game}' lygį
+        new: Kurti naują lygį
+        prompts:
+          new: Naujas patarimas
+          edit: Redaguoti patarimą
+          title: 'Patarimai'
   games:
     title: Žaidimai
     upcoming: Ateinantys žaidimai
     participate: Dalyvauti
-    new: Kurti naują žaidimą
-    edit: Redaguoti žaidimą '%{game}'
-    my:
-      title: Mano žaidimai
-    levels:
-      title: Žaidimo '%{game}' lygiai
-      edit: Redaguoti '%{game}' lygį
-      new: Kurti naują lygį
-      prompts:
-        new: Naujas patarimas
-        edit: Redaguoti patarimą
-        title: 'Patarimai'
   game_participations:
     level: "%{level} Lygis"
     enter_code: Įvesti kodą

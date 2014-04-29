@@ -1,4 +1,4 @@
-class GameLevelPromptsController < ApplicationController
+class Me::GameLevelPromptsController < ApplicationController
   before_filter :check_authentication
 
   def new
@@ -9,7 +9,7 @@ class GameLevelPromptsController < ApplicationController
     @game_level_prompt = game_level.prompts.build(game_level_prompt_params)
 
     if @game_level_prompt.save
-      redirect_to edit_game_level_path(game_id: game.id, id: game_level.id)
+      redirect_to edit_my_game_level_path(game_id: game.id, id: game_level.id)
     else
       render :new, status: :conflict
     end
@@ -24,7 +24,7 @@ class GameLevelPromptsController < ApplicationController
     @game_level_prompt.attributes = game_level_prompt_params
 
     if @game_level_prompt.save
-      redirect_to edit_game_level_path(game_id: game.id, id: game_level.id)
+      redirect_to edit_my_game_level_path(game_id: game.id, id: game_level.id)
     else
       render :edit, status: :conflict
     end
@@ -34,7 +34,7 @@ class GameLevelPromptsController < ApplicationController
     @game_level_prompt = find_game_level_prompt
     @game_level_prompt.destroy
 
-    reditect_to edit_game_level_path(game_id: game.id, id: game_level.id)
+    reditect_to edit_my_game_level_path(game_id: game.id, id: game_level.id)
   end
 
   private

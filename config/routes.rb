@@ -9,19 +9,20 @@ OvApp::Application.routes.draw do
   end
 
   resource :locale, only: [:update]
-  resources :games do
+
+  namespace :me, as: :my do
+    resources :games do
+      resources :levels, controller: 'game_levels' do
+        resources :prompts, controller: 'game_level_prompts'
+      end
+    end
+  end
+
+  resources :games, only: [:index] do
     resource :team_game_participation,
              controller: 'game_participations',
              path: '/play',
              only: [:show, :update],
              as: :participation
-
-    collection do
-      get :my
-    end
-
-    resources :levels, controller: 'game_levels' do
-      resources :prompts, controller: 'game_level_prompts'
-    end
   end
 end

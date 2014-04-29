@@ -1,4 +1,4 @@
-class GameLevelsController < ApplicationController
+class Me::GameLevelsController < ApplicationController
   before_filter :check_authentication
 
   def index
@@ -13,7 +13,7 @@ class GameLevelsController < ApplicationController
     @game_level = game.levels.build(game_level_params)
 
     if @game_level.save
-      redirect_to game_levels_path
+      redirect_to my_game_levels_path
     else
       render :new, status: :conflict
     end
@@ -28,7 +28,7 @@ class GameLevelsController < ApplicationController
     @game_level.attributes = game_level_params
 
     if @game_level.save
-      redirect_to game_levels_path
+      redirect_to my_game_levels_path
     else
       render :edit, status: :conflict
     end
@@ -38,7 +38,7 @@ class GameLevelsController < ApplicationController
     @game_level = find_game_level
     @game_level.destroy
 
-    redirect_to edit_game_path(game)
+    redirect_to edit_my_game_path(game)
   end
 
   private
