@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
                    primary_key: 'user_id'
 
   has_many :team_members
+  has_many :teams, through: :team_members,
+                   source: :team
+
+  def active_team
+    team_members.where(active: true).first.try(:team)
+  end
 
   def team
     return nil unless team_members.any?

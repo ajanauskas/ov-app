@@ -4,7 +4,9 @@
   <%= title %>
 </h1>
 
-<%= link_to t('me.games.new'), new_my_game_path, class: 'btn btn-default' %>
+<% if @current_user %>
+  <%= link_to t('me.games.new'), new_my_game_path, class: 'btn btn-default' %>
+<% end %>
 
 <table class="table table-striped">
   <thead>

@@ -1,0 +1,21 @@
+<%= header_and_page_title(@user.login) %>
+
+<% if @user.active_team %>
+  <h3>
+    <%= t('users.main_team') %>
+  </h3>
+
+  <p>
+    <%= @user.active_team %>
+  </p>
+<% end %>
+
+<% if @current_user == @user %>
+  <h3>
+    <%= t('users.passive_teams') %>
+  </h3>
+
+  <% @user.teams.each do |team| %>
+    <p><%= team %></p>
+  <% end %>
+<% end %>

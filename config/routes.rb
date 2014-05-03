@@ -1,7 +1,7 @@
 OvApp::Application.routes.draw do
   root 'games#index'
 
-  resources :users, only: [:new, :create] do
+  resources :users, only: [:index, :show, :new, :create] do
     collection do
       get :login, to: :login_form
       put :login, :logout

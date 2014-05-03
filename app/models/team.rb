@@ -18,6 +18,10 @@ class Team < ActiveRecord::Base
     team
   end
 
+  def to_s
+    name
+  end
+
   private
 
   def add_owner_to_members

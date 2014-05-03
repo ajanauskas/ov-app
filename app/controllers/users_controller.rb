@@ -3,6 +3,14 @@ class UsersController < ApplicationController
 
   before_filter :skip_if_logged, only: [:new, :create, :login_form, :login]
 
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = User.includes(:team_members, :teams).find(params[:id])
+  end
+
   def new
     @user = User.new
   end

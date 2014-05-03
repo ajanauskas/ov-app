@@ -1,0 +1,28 @@
+<h1>
+  <% title = t('users.title') %>
+  <% content_for(:page_title, title) %>
+  <%= title %>
+</h1>
+
+<table class="table table-striped">
+  <thead>
+    <th class="col-sm-2">
+      <%= User.human_attribute_name(:login) %>
+    </th>
+    <th class="col-sm-2">
+      <%= User.human_attribute_name(:active_team) %>
+    </th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user.login, user_path(user) %>
+        </td>
+        <td>
+          <%= user.active_team %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

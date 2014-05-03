@@ -25,6 +25,7 @@ lt:
               wrong_login: Neteisingas prisijungimo vardas arba slaptažodis
     models:
       user: Vartotojas
+      team: Komanda
       game: Žaidimas
       game_level: Žaidimo lygis
       game_level_prompt: Žaidimo lygio patarimas
@@ -46,6 +47,7 @@ lt:
         email: Elektroninis paštas
         password: Slaptažodis
         password_confirmation: Pakartokite slaptažodį
+        active_team: Komanda
 
   errors:
     http:
@@ -63,9 +65,12 @@ lt:
   login:
     login: 'Prisijungti'
   users:
+    title: Žaidėjai
     new: Nario registracija
     signup: Registruotis
     logout: Atsijungt
+    main_team: Komandoje
+    passive_teams: Pasyvios komandos
   me:
     games:
       title: Mano žaidimai
