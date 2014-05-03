@@ -10,7 +10,9 @@ OvApp::Application.routes.draw do
 
   resource :locale, only: [:update]
 
+
   namespace :me, as: :my do
+    resources :team_members, only: [:update, :destroy]
     resources :games do
       resources :levels, controller: 'game_levels' do
         resources :prompts, controller: 'game_level_prompts'

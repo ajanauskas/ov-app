@@ -71,6 +71,9 @@ lt:
     logout: Atsijungt
     main_team: Komandoje
     passive_teams: Pasyvios komandos
+  team:
+    change: Pereiti į komandą
+    leave: Palikti komandą
   me:
     games:
       title: Mano žaidimai

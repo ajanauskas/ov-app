@@ -15,7 +15,8 @@
     <%= t('users.passive_teams') %>
   </h3>
 
-  <% @user.teams.each do |team| %>
-    <p><%= team %></p>
-  <% end %>
+  <%= render 'shared/teams_table',
+              teams: @user.teams,
+              user: @user,
+              render: [:leave, :change] %>
 <% end %>
