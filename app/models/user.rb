@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  class WrongPasswordError < StandardError; end
+
   has_secure_password
   validates_confirmation_of :password
 
@@ -14,6 +16,10 @@ class User < ActiveRecord::Base
   has_many :team_members
   has_many :teams, through: :team_members,
                    source: :team
+
+  def authenticate!(password)
+    authenticate(password) or raise WrongPasswordError.new('Invalid password')
+  end
 
   def active_team
     team_members.where(active: true).first.try(:team)

@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  class WrongPasswordError < StandardError; end
-
   before_filter :skip_if_logged, only: [:new, :create, :login_form, :login]
 
   def index
@@ -34,14 +32,10 @@ class UsersController < ApplicationController
   def login
     params[:login] ||= {}
     @user = User.find_by!(login: params[:login][:login])
-
-    if @user.authenticate(params[:login][:password])
-      session[:user_id] = @user.id
-      redirect_to root_path
-    else
-      raise WrongPasswordError.new('Invalid password')
-    end
-  rescue ActiveRecord::RecordNotFound, WrongPasswordError
+    @user.authenticate!(params[:login][:password])
+    session[:user_id] = @user.id
+    redirect_to root_path
+  rescue ActiveRecord::RecordNotFound, User::WrongPasswordError
     @login ||= Login.new(params[:login])
     @login.errors.add(:login, :wrong_login)
     flash[:error] = @login.errors.messages
