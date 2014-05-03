@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
+      flash[:error] = @user.errors.messages
       render :new, status: :conflict
     end
   end
@@ -43,6 +44,7 @@ class UsersController < ApplicationController
   rescue ActiveRecord::RecordNotFound, WrongPasswordError
     @login ||= Login.new(params[:login])
     @login.errors.add(:login, :wrong_login)
+    flash[:error] = @login.errors.messages
     render :login_form, status: :conflict
   end
 

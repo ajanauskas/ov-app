@@ -11,6 +11,7 @@ class Me::GameLevelPromptsController < ApplicationController
     if @game_level_prompt.save
       redirect_to edit_my_game_level_path(game_id: game.id, id: game_level.id)
     else
+      flash[:error] = @game_level_prompt.errors.messages
       render :new, status: :conflict
     end
   end
@@ -26,6 +27,7 @@ class Me::GameLevelPromptsController < ApplicationController
     if @game_level_prompt.save
       redirect_to edit_my_game_level_path(game_id: game.id, id: game_level.id)
     else
+      flash[:error] = @game_level_prompt.errors.messages
       render :edit, status: :conflict
     end
   end

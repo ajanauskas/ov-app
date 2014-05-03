@@ -50,6 +50,10 @@ lt:
         active_team: Komanda
 
   errors:
+    errors_found:
+      one: Klaida
+      few: '%{count} klaidos'
+      many: '%{count} klaidos'
     http:
       title: "Oi! Kažkas netikėto įvyko"
       forbidden: "Jūs neturite pakankamai prieigos teisių norint peržiūrėt šį puslapį"

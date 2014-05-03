@@ -19,6 +19,7 @@ class Me::GamesController < ApplicationController
     if @game.update(game_params)
       redirect_to edit_my_game_path(@game)
     else
+      flash[:error] = @game.errors.messages
       render :edit
     end
   end
@@ -29,6 +30,7 @@ class Me::GamesController < ApplicationController
     if Game.create_with_game_owner(@game, @current_user)
       redirect_to root_path
     else
+      flash[:error] = @game.errors.messages
       render :new, status: :conflict
     end
   end

@@ -6,6 +6,9 @@
 <%= render 'layouts/main_navigation' %>
 
 <div class="container">
+  <%= messages_helper(flash[:notice], :notice) %>
+  <%= messages_helper(flash[:warning], :warning) %>
+  <%= messages_helper(flash[:error], :error) %>
   <%= yield %>
 </div>
 

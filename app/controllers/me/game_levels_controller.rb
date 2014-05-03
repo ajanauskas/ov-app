@@ -15,6 +15,7 @@ class Me::GameLevelsController < ApplicationController
     if @game_level.save
       redirect_to my_game_levels_path
     else
+      flash[:error] = @game_level.errors.messages
       render :new, status: :conflict
     end
   end
@@ -30,6 +31,7 @@ class Me::GameLevelsController < ApplicationController
     if @game_level.save
       redirect_to my_game_levels_path
     else
+      flash[:error] = @game_level.errors.messages
       render :edit, status: :conflict
     end
   end
