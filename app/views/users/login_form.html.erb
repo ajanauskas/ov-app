@@ -1,4 +1,4 @@
-<h1><%= t('login.login') %></h1>
+<%= header_and_page_title t('login.login') %>
 
 <%= simple_form_for(@login, url: login_users_path, method: :put) do |f| %>
   <%= f.input :login, label: false %>

@@ -1,8 +1,4 @@
-<h1>
-  <% title = t('me.games.title') %>
-  <% content_for(:page_title, title) %>
-  <%= title %>
-</h1>
+<%= header_and_page_title t('me.games.title') %>
 
 <% if @current_user %>
   <%= link_to t('me.games.new'), new_my_game_path, class: 'btn btn-default' %>

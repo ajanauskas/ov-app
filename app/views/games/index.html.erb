@@ -1,7 +1,4 @@
-<h1>
-  <%= title = t('games.upcoming') %>
-  <% content_for(:page_title, title) %>
-</h1>
+<%= header_and_page_title(t('games.upcoming')) %>
 
 <% @games.each do |game| %>
   <h3><%= game.title %></h3>

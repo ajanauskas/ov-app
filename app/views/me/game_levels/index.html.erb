@@ -1,8 +1,4 @@
-<h1>
-  <% title = t('games.levels.title', game: @game.title) %>
-  <% content_for(:page_title, title) %>
-  <%= title %>
-</h1>
+<%= header_and_page_title t('games.levels.title', game: @game.title) %>
 
 <%= link_to t('games.levels.new'),
       new_my_game_level_path(game_id: @game.id),

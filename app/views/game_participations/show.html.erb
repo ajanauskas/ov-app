@@ -1,4 +1,6 @@
-<h1><%= t('game_participations.level', level: @participation.current_game_level.sort) %></h1>
+<%= header_and_page_title(
+      t('game_participations.level', level: @participation.current_game_level.sort)
+    ) %>
 
 <%= simple_form_for @game_level_code, url: game_participation_path(game_id: @participation.game.id), method: :put do |f| %>
   <%= f.input :code %>
