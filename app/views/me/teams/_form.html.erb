@@ -1,0 +1,6 @@
+<% url = @team.new_record? ? my_teams_path : my_team_path(@team) %>
+
+<%= simple_form_for @team, url: url do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

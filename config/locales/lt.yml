@@ -25,10 +25,10 @@ lt:
               wrong_login: Neteisingas prisijungimo vardas arba slaptažodis
     models:
       user: Vartotojas
-      team: Komanda
       game: Žaidimas
       game_level: Žaidimo lygis
       game_level_prompt: Žaidimo lygio patarimas
+      team: Komanda
     attributes:
       game:
         title: Pavadinimas
@@ -98,6 +98,8 @@ lt:
     teams:
       new:
         title: Kurti naują komandą
+      edit:
+        title: 'Redaguoti %{team} komada'
   games:
     title: Žaidimai
     upcoming: Ateinantys žaidimai
@@ -110,6 +112,7 @@ lt:
     delete: Ištrinti
     are_you_sure: Ar tikrai norite tą padaryt?
     record_updated: Įrašas atnaujintas
+    record_created: Įrašas sukurtas
 
   helpers:
     submit:

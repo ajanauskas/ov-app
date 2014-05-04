@@ -30,8 +30,8 @@ class ApplicationController < ActionController::Base
     render template: 'shared/errors/simple', locals: { message: message }, status: status
   end
 
-  def update_record(record, params, redirect: nil)
-    if record.update(params)
+  def update_record(record, attributes, redirect: nil)
+    if record.update(attributes)
       flash[:notice] = I18n.t('common.record_updated')
       redirect_to redirect
     else
@@ -40,8 +40,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def create_record(record, params, redirect: nil)
-    if record.create(params)
+  def create_record(record, attributes, redirect: nil)
+    record.attributes = attributes
+
+    if record.save(params)
       flash[:notice] = I18n.t('common.record_updated')
       redirect_to redirect
     else

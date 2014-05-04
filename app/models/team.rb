@@ -1,9 +1,14 @@
 class Team < ActiveRecord::Base
-  has_many :team_members
+  has_many :team_members, dependent: :destroy
   has_many :members, through: :team_members,
                      source: :user
 
   belongs_to :owner, class_name: 'User'
+
+  validates :name,
+            presence: true,
+            length: { minimum: 5, maximum: 40 },
+            uniqueness: true
 
   after_create :add_owner_to_members
 
@@ -27,6 +32,6 @@ class Team < ActiveRecord::Base
   def add_owner_to_members
     team_member = team_members.build
     team_member.user_id = owner_id
-    team_member.save
+    team_member.save!
   end
 end

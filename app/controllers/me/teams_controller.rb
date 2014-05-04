@@ -6,8 +6,8 @@ class Me::TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new
-
+    @team = Team.new(team_params)
+    @team.owner = @current_user
     create_record(@team, team_params, redirect: teams_path)
   end
 
