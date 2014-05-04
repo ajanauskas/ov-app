@@ -10,7 +10,7 @@ class TeamInvitation < ActiveRecord::Base
   scope :requests_to_join, -> { where(type: INVITATION_REQUEST) }
   scope :invitations, -> { where(type: INVITED_BY_TEAM) }
 
-  validates_uniqueness_of [:type, :user_id, :team_id]
+  validates_uniqueness_of :user_id, scope: [:type, :team_id]
 
   def approve
     destroy
