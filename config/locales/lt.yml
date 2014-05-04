@@ -47,7 +47,6 @@ lt:
         email: Elektroninis paštas
         password: Slaptažodis
         password_confirmation: Pakartokite slaptažodį
-        active_team: Komanda
       team:
         name: Komandos pavadinimas
         owner: Kapitonas
@@ -80,6 +79,9 @@ lt:
     logout: Atsijungt
     main_team: Komandoje
     passive_teams: Pasyvios komandos
+    show:
+      active_team: Aktyvi komanda
+      passive_teams: Pasyvios komandos
   teams:
     index:
       title: Komandos

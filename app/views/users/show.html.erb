@@ -2,21 +2,22 @@
 
 <% if @user.active_team %>
   <h3>
-    <%= t('users.main_team') %>
+    <%= t('.active_team') %>
   </h3>
 
-  <p>
-    <%= @user.active_team %>
-  </p>
+  <%= render 'shared/teams_table',
+              teams: [@user.active_team],
+              user: @user,
+              render: [:leave] %>
 <% end %>
 
 <% if @current_user == @user %>
   <h3>
-    <%= t('users.passive_teams') %>
+    <%= t('.passive_teams') %>
   </h3>
 
   <%= render 'shared/teams_table',
-              teams: @user.teams,
+              teams: @user.teams - [@user.active_team],
               user: @user,
               render: [:leave, :change] %>
 <% end %>

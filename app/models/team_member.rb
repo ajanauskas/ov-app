@@ -2,19 +2,23 @@ class TeamMember < ActiveRecord::Base
   belongs_to :team
   belongs_to :user
 
+  validates_uniqueness_of :user_id, scope: :team_id
+
+  after_update :enforce_single_active_team, if: :active_changed?
+
   def activate_user!
-    previous_active_team = TeamMember.find_by(user_id: user_id, team_id: team_id, active: true)
+    self.active = true
+    save!
+  end
 
-    return if previous_active_team == self
+  private
 
-    ActiveRecord::Base.transaction do
-      self.active = true
-      self.save!
-
-      if previous_active_team.present?
-        previous_active_team.active = false
-        previous_active_team.save!
-      end
+  def enforce_single_active_team
+    if active?
+      TeamMember
+        .where('id <> ?', id)
+        .where(user_id: user_id, team_id: team_id, active: true)
+        .update_all(active: false)
     end
   end
 end
