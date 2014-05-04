@@ -1,6 +1,10 @@
 class Me::TeamsController < ApplicationController
   before_filter :check_authentication
 
+  def index
+    @teams = @current_user.teams.includes(:members, team_invitations: :user).all
+  end
+
   def new
     @team = Team.new
   end

@@ -51,6 +51,8 @@ lt:
       team:
         name: Komandos pavadinimas
         owner: Kapitonas
+        members: Nariai
+        requests: Prašymai prisijungt
 
   errors:
     errors_found:
@@ -102,6 +104,15 @@ lt:
         title: Kurti naują komandą
       edit:
         title: 'Redaguoti %{team} komada'
+      index:
+        title: Mano komandos
+        accept_invitation: Priimti į komandą
+        reject_invitation: Nepriimti
+  requests_to_join:
+    create:
+      request_sent: 'Komandos kapitonui nusiustas prašymas prisijungt prie komandos'
+      request_already_sent: 'Kvietimas jau buvo nusiūstas anksčiau'
+      already_in_team: 'Jau komandoje'
   games:
     title: Žaidimai
     upcoming: Ateinantys žaidimai

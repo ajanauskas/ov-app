@@ -38,7 +38,7 @@
               <% end %>
             <% else %>
               <%= link_to t('teams.request_to_join'),
-                          team_invitations_path,
+                          team_requests_path(team_id: team.id),
                           data: { method: :post },
                           class: 'btn btn-default' %>
             <% end %>

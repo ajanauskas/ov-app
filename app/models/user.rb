@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :teams, through: :team_members,
                    source: :team
 
+  has_many :team_invitations, dependent: :destroy
+
   def to_s
     login
   end

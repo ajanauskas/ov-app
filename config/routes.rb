@@ -10,12 +10,16 @@ OvApp::Application.routes.draw do
 
   resource :locale, only: [:update]
 
-  resources :teams, only: [:index]
-  resources :team_invitations, only: [:create, :destroy]
+  resources :teams, only: [:index] do
+    resources :requests_to_join,
+              as: :requests,
+              controller: 'requests_to_join',
+              only: [:create, :destroy, :update]
+  end
 
   namespace :me, as: :my do
     resources :team_members, only: [:update, :destroy]
-    resources :teams, only: [:new, :create, :update, :destroy]
+    resources :teams, only: [:index, :new, :create, :update, :destroy]
 
     resources :games do
       resources :levels, controller: 'game_levels' do

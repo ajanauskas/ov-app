@@ -2,6 +2,7 @@ class Team < ActiveRecord::Base
   has_many :team_members, dependent: :destroy
   has_many :members, through: :team_members,
                      source: :user
+  has_many :team_invitations, dependent: :destroy
 
   belongs_to :owner, class_name: 'User'
 
@@ -25,6 +26,14 @@ class Team < ActiveRecord::Base
 
   def to_s
     name
+  end
+
+  def request_to_join!(user)
+    team_invitations.requests_to_join.where(user_id: user.id).first_or_create!
+  end
+
+  def invite_to_join!(user)
+    team_invitations.invitations.where(user_id: user.id).first_or_create!
   end
 
   private

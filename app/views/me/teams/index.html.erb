@@ -1,0 +1,54 @@
+<%= header_and_page_title t('.title') %>
+
+<table class="table table-striped">
+  <thead>
+    <th class="col-sm-2">
+      <%= Team.human_attribute_name(:name) %>
+    </th>
+    <th class="col-sm-4">
+      <%= Team.human_attribute_name(:members) %>
+    </th>
+    <% if @teams.map(&:owner_id).include? @current_user.id %>
+      <th class="col-sm-6">
+        <%= Team.human_attribute_name(:requests) %>
+      </th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% @teams.each do |team| %>
+      <td>
+        <%= team %>
+      </td>
+      <td>
+        <ul>
+          <% team.members.each do |member| %>
+            <li>
+              <%= member %>
+            </li>
+          <% end %>
+        </ul>
+      </td>
+      <td>
+        <% if team.owner_id == @current_user.id %>
+          <ul>
+            <% team.team_invitations.each do |invitation| %>
+              <li>
+                <%= invitation.user %>
+                <div class="btn-group btn-group-xs">
+                  <%= link_to t('.accept_invitation'),
+                              team_request_path(team_id: team.id, id: invitation.id),
+                              data: { method: :put },
+                              class: 'btn btn-default' %>
+                  <%= link_to t('.reject_invitation'),
+                              team_request_path(team_id: team.id, id: invitation.id),
+                              data: { method: :delete },
+                              class: 'btn btn-default' %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </td>
+    <% end %>
+  </tbody>
+</table>
