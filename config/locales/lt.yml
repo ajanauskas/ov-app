@@ -48,6 +48,8 @@ lt:
         password: Slaptažodis
         password_confirmation: Pakartokite slaptažodį
         active_team: Komanda
+      team:
+        name: Komandos pavadinimas
 
   errors:
     errors_found:
@@ -75,7 +77,9 @@ lt:
     logout: Atsijungt
     main_team: Komandoje
     passive_teams: Pasyvios komandos
-  team:
+  teams:
+    index:
+      title: Komandos
     change: Pereiti į komandą
     leave: Palikti komandą
   me:
@@ -91,6 +95,9 @@ lt:
           new: Naujas patarimas
           edit: Redaguoti patarimą
           title: 'Patarimai'
+    teams:
+      new:
+        title: Kurti naują komandą
   games:
     title: Žaidimai
     upcoming: Ateinantys žaidimai
@@ -102,6 +109,7 @@ lt:
     edit: Redaguoti
     delete: Ištrinti
     are_you_sure: Ar tikrai norite tą padaryt?
+    record_updated: Įrašas atnaujintas
 
   helpers:
     submit:

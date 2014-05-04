@@ -29,4 +29,24 @@ class ApplicationController < ActionController::Base
 
     render template: 'shared/errors/simple', locals: { message: message }, status: status
   end
+
+  def update_record(record, params, redirect: nil)
+    if record.update(params)
+      flash[:notice] = I18n.t('common.record_updated')
+      redirect_to redirect
+    else
+      flash[:error] = record.errors.messages
+      render :edit, status: :conflict
+    end
+  end
+
+  def create_record(record, params, redirect: nil)
+    if record.create(params)
+      flash[:notice] = I18n.t('common.record_updated')
+      redirect_to redirect
+    else
+      flash[:error] = record.errors.messages
+      render :new, status: :conflict
+    end
+  end
 end

@@ -13,17 +13,19 @@
           <%= team.name %>
         </td>
         <td>
-          <% if @current_user == user %>
-            <% if render.include? :change %>
-              <%= link_to t('team.change'),
-                          my_team_member_path(user.team_members.find { |tm| tm.team_id == team.id }),
+          <% if defined?(user) && @current_user == user %>
+            <% team_member = user.team_members.find { |tm| tm.team_id == team.id } %>
+
+            <% if render.include? :change && team_member %>
+              <%= link_to t('teams.change'),
+                          my_team_member_path(team_member),
                           data: { method: :put },
                           class: 'btn btn-primary' %>
             <% end %>
 
             <% if render.include? :leave %>
-              <%= link_to t('team.leave'),
-                          my_team_member_path(user.team_members.find { |tm| tm.team_id == team.id }),
+              <%= link_to t('teams.leave'),
+                          my_team_member_path(team_member),
                           data: { method: :delete },
                           class: 'btn btn-danger' %>
             <% end %>
