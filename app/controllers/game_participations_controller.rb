@@ -1,5 +1,6 @@
 class GameParticipationsController < ApplicationController
   before_filter :check_authentication
+  before_filter :check_for_active_team
   before_filter :create_team_and_team_participation
 
   def show
@@ -26,12 +27,17 @@ class GameParticipationsController < ApplicationController
 
   private
 
-  def create_team_and_team_participation
-    Team.create_dummy_team_for(@current_user)
+  def check_for_active_team
+    if !@current_user.active_team
+      flash[:error] = t('.no_active_team')
+      return redirect_to root_path
+    end
+  end
 
+  def create_team_and_team_participation
     @participation = TeamGameParticipation
       .create_participation_for(
-        user: @current_user,
+        user: @current_user.active_team,
         game: game
       )
   end

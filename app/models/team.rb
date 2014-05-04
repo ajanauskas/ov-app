@@ -13,17 +13,6 @@ class Team < ActiveRecord::Base
 
   after_create :add_owner_to_members
 
-  def self.create_dummy_team_for(user)
-    team = user.team || self.new
-
-    return team unless team.new_record?
-
-    team.name = "#{user.login} Team"
-    team.owner = user
-    team.save!
-    team
-  end
-
   def to_s
     name
   end
