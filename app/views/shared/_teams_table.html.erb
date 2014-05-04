@@ -3,7 +3,10 @@
     <th class="col-sm-2">
       <%= Team.human_attribute_name(:name) %>
     </th>
-    <th class="col-sm-1">
+    <th class="col-sm-2">
+      <%= Team.human_attribute_name(:owner) %>
+    </th>
+    <th class="col-sm-2">
     </th>
   </thead>
   <tbody>
@@ -13,21 +16,31 @@
           <%= team.name %>
         </td>
         <td>
-          <% if defined?(user) && @current_user == user %>
-            <% team_member = user.team_members.find { |tm| tm.team_id == team.id } %>
+          <%= team.owner %>
+        </td>
+        <td>
+          <% if @current_user %>
+            <% team_member = @current_user.team_members.find { |tm| tm.team_id == team.id } %>
 
-            <% if render.include? :change && team_member %>
-              <%= link_to t('teams.change'),
-                          my_team_member_path(team_member),
-                          data: { method: :put },
-                          class: 'btn btn-primary' %>
-            <% end %>
+            <% if team_member %>
+              <% if render.include? :change %>
+                <%= link_to t('teams.change'),
+                            my_team_member_path(team_member),
+                            data: { method: :put },
+                            class: 'btn btn-primary' %>
+              <% end %>
 
-            <% if render.include? :leave %>
-              <%= link_to t('teams.leave'),
-                          my_team_member_path(team_member),
-                          data: { method: :delete },
-                          class: 'btn btn-danger' %>
+              <% if render.include? :leave %>
+                <%= link_to t('teams.leave'),
+                            my_team_member_path(team_member),
+                            data: { method: :delete },
+                            class: 'btn btn-danger' %>
+              <% end %>
+            <% else %>
+              <%= link_to t('teams.request_to_join'),
+                          team_invitations_path,
+                          data: { method: :post },
+                          class: 'btn btn-default' %>
             <% end %>
           <% end %>
         </td>

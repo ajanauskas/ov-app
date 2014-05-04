@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   has_many :teams, through: :team_members,
                    source: :team
 
+  def to_s
+    login
+  end
+
   def authenticate!(password)
     authenticate(password) or raise WrongPasswordError.new('Invalid password')
   end

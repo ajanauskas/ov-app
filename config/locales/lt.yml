@@ -50,6 +50,7 @@ lt:
         active_team: Komanda
       team:
         name: Komandos pavadinimas
+        owner: Kapitonas
 
   errors:
     errors_found:
@@ -82,6 +83,7 @@ lt:
       title: Komandos
     change: Pereiti į komandą
     leave: Palikti komandą
+    request_to_join: Jungtis prie komandos
   me:
     games:
       title: Mano žaidimai

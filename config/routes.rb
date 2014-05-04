@@ -11,6 +11,7 @@ OvApp::Application.routes.draw do
   resource :locale, only: [:update]
 
   resources :teams, only: [:index]
+  resources :team_invitations, only: [:create, :destroy]
 
   namespace :me, as: :my do
     resources :team_members, only: [:update, :destroy]
