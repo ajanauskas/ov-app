@@ -8,14 +8,15 @@
 <% end %>
 
 <h3>Užduotis</h3>
+<legend></legend>
 
 <div>
   <%= raw @participation.current_game_level.description %>
 </div>
 
-<legend></legend>
-
-<% @participation.current_game_level.prompts.each do |prompt| %>
+<% @participation.current_game_level.prompts.each_with_index do |prompt, i| %>
+  <h4><%= "#{i + 1} patarimas" %></h4>
+  <legend></legend>
   <% if prompt.visible_for?(@participation) %>
     <p>
       <%= raw prompt.description %>
