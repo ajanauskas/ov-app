@@ -14,7 +14,7 @@
 <% @participation.current_game_level.prompts.each do |prompt| %>
   <% if prompt.visible_for?(@participation) %>
     <p>
-      <%= prompt.description %>
+      <%= raw prompt.description %>
     </p>
   <% else %>
     <p class="js-countdown" data-countdown-until="<%= prompt.appears_at(@participation).iso8601 %>">
