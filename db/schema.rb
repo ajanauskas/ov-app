@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504135002) do
+ActiveRecord::Schema.define(version: 20140507121155) do
 
   create_table "game_level_prompts", force: true do |t|
     t.integer "game_level_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140504135002) do
   create_table "game_levels", force: true do |t|
     t.integer "game_id",     null: false
     t.integer "sort",        null: false
-    t.string  "description", null: false
+    t.text    "description", null: false
     t.string  "code",        null: false
   end
 
