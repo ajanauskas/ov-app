@@ -8,7 +8,7 @@ class RequestsToJoinController < ApplicationController
     if @current_user.team_invitations.where(team_id: @team.id).exists?
       flash[:error] = t('.request_already_sent')
       return redirect_to teams_path
-    elsif @current_user.teams.where(team_id: @team.id).exists?
+    elsif @current_user.teams.where(id: @team.id).exists?
       flash[:error] = t('.already_in_team')
       return redirect_to teams_path
     end

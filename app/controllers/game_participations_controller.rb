@@ -37,7 +37,7 @@ class GameParticipationsController < ApplicationController
   def create_team_and_team_participation
     @participation = TeamGameParticipation
       .create_participation_for(
-        user: @current_user.active_team,
+        user: @current_user,
         game: game
       )
   end

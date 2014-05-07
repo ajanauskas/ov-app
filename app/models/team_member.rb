@@ -4,6 +4,7 @@ class TeamMember < ActiveRecord::Base
 
   validates_uniqueness_of :user_id, scope: :team_id
 
+  before_create :enforce_single_active_team
   after_update :enforce_single_active_team, if: :active_changed?
 
   def activate_user!
@@ -19,6 +20,8 @@ class TeamMember < ActiveRecord::Base
         .where('id <> ?', id)
         .where(user_id: user_id, team_id: team_id, active: true)
         .update_all(active: false)
+    elsif !TeamMember.where(user_id: user_id, team_id: team_id, active: true).exists?
+      self.active = true
     end
   end
 end

@@ -14,7 +14,9 @@ class TeamInvitation < ActiveRecord::Base
 
   def approve
     destroy
-    TeamMember.where(user_id: user_id, team_id: team_id).first_or_create!
+    team_member = TeamMember.where(user_id: user_id, team_id: team_id).first_or_create!
+    team_member.active = true
+    team_member.save!
   end
 
   def reject

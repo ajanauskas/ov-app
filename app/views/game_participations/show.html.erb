@@ -7,9 +7,13 @@
   <%= f.submit t('game_participations.enter_code'), class: 'btn btn-primary' %>
 <% end %>
 
+<h3>Užduotis</h3>
+
 <div>
   <%= raw @participation.current_game_level.description %>
 </div>
+
+<legend></legend>
 
 <% @participation.current_game_level.prompts.each do |prompt| %>
   <% if prompt.visible_for?(@participation) %>

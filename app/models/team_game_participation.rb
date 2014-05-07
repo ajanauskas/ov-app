@@ -4,7 +4,7 @@ class TeamGameParticipation < ActiveRecord::Base
   belongs_to :current_game_level, class_name: 'GameLevel'
 
   def self.create_participation_for(user: user, game: game)
-    participation = find_by(team_id: user.team.id, game_id: game.id) || self.new
+    participation = find_by(team_id: user.active_team.id, game_id: game.id) || self.new
 
     return participation unless participation.new_record?
 
