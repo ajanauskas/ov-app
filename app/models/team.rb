@@ -29,6 +29,7 @@ class Team < ActiveRecord::Base
 
   def add_owner_to_members
     team_member = team_members.build
+    team_member.active = true
     team_member.user_id = owner_id
     team_member.save!
   end
