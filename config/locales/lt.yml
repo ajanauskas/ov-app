@@ -87,6 +87,8 @@ lt:
       title: Komandos
     change: Pereiti į komandą
     leave: Palikti komandą
+    leave_confirm: Tai išmes jus iš komandos visam laikui. Ar jūs tikrai norite išeiti?
+    inactivate: Padaryti pasyvią
     request_to_join: Jungtis prie komandos
   game_participations:
     no_active_team: Norint žaisti reikia tūrėti komandą

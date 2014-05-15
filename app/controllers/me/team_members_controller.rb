@@ -4,7 +4,7 @@ class Me::TeamMembersController < ApplicationController
   def update
     team_member = @current_user.team_members.find(params[:id])
 
-    team_member.activate_user!
+    team_member.activate!
 
     redirect_to user_path(@current_user)
   end
@@ -13,6 +13,14 @@ class Me::TeamMembersController < ApplicationController
     team_member = @current_user.team_members.find(params[:id])
 
     team_member.destroy!
+
+    redirect_to user_path(@current_user)
+  end
+
+  def inactivate
+    team_member = @current_user.team_members.find(params[:id])
+
+    team_member.inactivate!
 
     redirect_to user_path(@current_user)
   end

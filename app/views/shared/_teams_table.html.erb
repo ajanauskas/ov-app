@@ -6,7 +6,7 @@
     <th class="col-sm-2">
       <%= Team.human_attribute_name(:owner) %>
     </th>
-    <th class="col-sm-2">
+    <th class="col-sm-3">
     </th>
   </thead>
   <tbody>
@@ -30,10 +30,17 @@
                             class: 'btn btn-primary' %>
               <% end %>
 
+              <% if render.include?(:inactivate) && team_member.active? %>
+                <%= link_to t('teams.inactivate'),
+                            inactivate_my_team_member_path(team_member),
+                            data: { method: :put },
+                            class: 'btn btn-danger' %>
+              <% end %>
+
               <% if render.include? :leave %>
                 <%= link_to t('teams.leave'),
                             my_team_member_path(team_member),
-                            data: { method: :delete },
+                            data: { method: :delete, confirm: t('teams.leave_confirm') },
                             class: 'btn btn-danger' %>
               <% end %>
             <% else %>

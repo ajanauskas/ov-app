@@ -18,7 +18,12 @@ OvApp::Application.routes.draw do
   end
 
   namespace :me, as: :my do
-    resources :team_members, only: [:update, :destroy]
+    resources :team_members, only: [:update] do
+      member do
+        put :inactivate
+      end
+    end
+
     resources :teams, only: [:index, :new, :create, :update, :destroy]
 
     resources :games do

@@ -8,7 +8,7 @@
   <%= render 'shared/teams_table',
               teams: [@user.active_team],
               user: @user,
-              render: [:leave] %>
+              render: [:leave, :inactivate] %>
 <% end %>
 
 <% if @current_user == @user %>
@@ -19,5 +19,5 @@
   <%= render 'shared/teams_table',
               teams: @user.teams - [@user.active_team],
               user: @user,
-              render: [:leave, :change] %>
+              render: [:leave, :inactivate, :change] %>
 <% end %>
