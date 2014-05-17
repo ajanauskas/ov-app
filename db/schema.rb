@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507121155) do
+ActiveRecord::Schema.define(version: 20140517105745) do
+
+  create_table "game_level_completions", force: true do |t|
+    t.integer  "team_id",       null: false
+    t.integer  "game_level_id", null: false
+    t.datetime "started_at",    null: false
+    t.datetime "finished_at",   null: false
+  end
 
   create_table "game_level_prompts", force: true do |t|
     t.integer "game_level_id", null: false

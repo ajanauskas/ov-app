@@ -1,10 +1,9 @@
 class Team < ActiveRecord::Base
   has_many :team_members, dependent: :destroy
-  has_many :members, through: :team_members,
-                     source: :user
+  has_many :members, through: :team_members, source: :user
   has_many :team_invitations, dependent: :destroy
-
   has_many :game_participations, class_name: 'TeamGameParticipation'
+  has_one :game_level_completion, class_name: 'GameLevelCompletion'
 
   belongs_to :owner, class_name: 'User'
 

@@ -26,8 +26,20 @@ class TeamGameParticipation < ActiveRecord::Base
 
   def advance_level!
     new_level = game.levels.where('sort > ?', current_game_level.sort).first
+    mark_level_complete!(updated_at, Time.now)
     touch(:updated_at)
     self.current_game_level = new_level
     save!
+  end
+
+  private
+
+  def mark_level_complete!(started_at, finished_at)
+    progress = GameLevelCompletion.new
+    progress.team_id = self.team_id
+    progress.game_level_id = self.current_game_level_id
+    progress.started_at = started_at
+    progress.finished_at = finished_at
+    progress.save!
   end
 end
