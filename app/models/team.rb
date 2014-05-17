@@ -4,6 +4,8 @@ class Team < ActiveRecord::Base
                      source: :user
   has_many :team_invitations, dependent: :destroy
 
+  has_many :game_participations, class_name: 'TeamGameParticipation'
+
   belongs_to :owner, class_name: 'User'
 
   validates :name,

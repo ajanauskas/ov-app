@@ -18,6 +18,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'railroady'
   gem 'quiet_assets'
   gem 'guard-rspec'
   gem 'rspec-rails', '~> 2.14.0'
