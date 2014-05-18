@@ -13,11 +13,6 @@ class GameParticipationsController < ApplicationController
     @game_level_code.code = params[:game_level_code][:code]
 
     if @game_level_code.valid?
-      if !@participation.can_advance_level?
-        @participation.destroy
-        return redirect_to root_path
-      end
-
       @participation.advance_level!
       @game_level_code.code = nil
     end
@@ -40,6 +35,8 @@ class GameParticipationsController < ApplicationController
         user: @current_user,
         game: game
       )
+
+    return redirect_to game_statistics_path(game_id: game.id) if !@participation.can_advance_level?
   end
 
   def game

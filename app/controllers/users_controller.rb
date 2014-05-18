@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :skip_if_logged, only: [:new, :create, :login_form, :login]
+  before_filter :check_authentication, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -11,6 +12,33 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
+
+    redirect_to root_path if @user != @current_user
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    redirect_to root_path if @user != @current_user
+
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
+    @user.attributes = user_create_params
+
+    if @user.save
+      flash[:notice] = 'Duomenys išsaugoti!'
+      redirect_to root_path
+    else
+      flash[:error] = @user.errors.messages
+      render :edit, status: :conflict
+    end
   end
 
   def create

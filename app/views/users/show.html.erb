@@ -1,5 +1,9 @@
 <%= header_and_page_title(@user.login) %>
 
+<%= link_to 'Keisti informaciją',
+            edit_user_path(@user),
+            class: 'btn btn-default' %>
+
 <% if @user.active_team %>
   <h3>
     <%= t('.active_team') %>
