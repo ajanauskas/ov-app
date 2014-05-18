@@ -11,7 +11,10 @@
   <% best_times.each do |best_time| %>
     <% team = @teams_participated.find { |t| t.id == best_time[0] } %>
     <% time = best_time[1][:time].to_i %>
-    <li><%= team.name %> - <%= "#{(time / 60 / 60).to_i} valandų #{(time / 60).to_i} minučių" %></li>
+    <% hours = (time / 60 / 60) %>
+    <% minutes = (time / 60) - (hours * 60) %>
+    <% seconds = time - (hours * 3600 + minutes * 60) %>
+    <li><%= team.name %> - <%= "#{hours}:#{0 if minutes < 10}#{minutes}:#{0 if seconds < 10}#{seconds}" %></li>
   <% end %>
 </ul>
 
@@ -29,7 +32,10 @@
     <% best_times.each do |best_time| %>
       <% team = @teams_participated.find { |t| t.id == best_time[0] } %>
       <% time = best_time[1][:levels][level.id].to_i %>
-      <li><%= team.name %> - <%= "#{(time / 60 / 60).to_i} valandų #{(time / 60).to_i} minučių" %></li>
+      <% hours = (time / 60 / 60) %>
+      <% minutes = (time / 60) - (hours * 60) %>
+      <% seconds = time - (hours * 3600 + minutes * 60) %>
+      <li><%= team.name %> - <%= "#{hours}:#{0 if minutes < 10}#{minutes}:#{0 if seconds < 10}#{seconds}" %></li>
     <% end %>
   </ul>
 <% end %>
