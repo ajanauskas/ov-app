@@ -5,6 +5,7 @@ class TeamMember < ActiveRecord::Base
   validates_uniqueness_of :user_id, scope: :team_id
 
   before_create :enforce_single_active_team
+  after_destroy :destroy_empty_team
   after_save :enforce_single_active_team, if: :active_changed?
 
   def activate!
@@ -18,6 +19,12 @@ class TeamMember < ActiveRecord::Base
   end
 
   private
+
+  def destroy_empty_team
+    if !TeamMember.where(team_id: team_id).any?
+      Team.find_by(team_id: team_id).destroy
+    end
+  end
 
   def enforce_single_active_team
     if active?
