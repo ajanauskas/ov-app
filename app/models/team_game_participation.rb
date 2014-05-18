@@ -8,7 +8,7 @@ class TeamGameParticipation < ActiveRecord::Base
 
     return participation unless participation.new_record?
 
-    participation.team = user.team
+    participation.team = user.active_team
     participation.game = game
     participation.current_game_level = game.levels.first
     participation.save!
