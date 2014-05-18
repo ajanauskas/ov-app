@@ -9,8 +9,16 @@
     <%= raw game.description %>
   </div>
 
-  <%= link_to t('games.participate'),
-              game_participation_path(game_id: game.id),
+  <% if @current_user %>
+    <% if game.active? && game.start < Time.now.utc %>
+      <%= link_to t('games.participate'),
+                  game_participation_path(game_id: game.id),
+                  class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+
+  <%= link_to t('games.statistics.title'),
+              game_statistics_path(game_id: game.id),
               class: 'btn btn-primary' %>
 
 <% end %>

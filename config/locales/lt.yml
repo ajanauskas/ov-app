@@ -37,6 +37,7 @@ lt:
         active: Aktyvus
       game_level:
         sort: Eilė
+        title: Pavadinimas
         description: Užduotis
         code: Kodas
       game_level_prompt:
@@ -123,6 +124,11 @@ lt:
     title: Žaidimai
     upcoming: Ateinantys žaidimai
     participate: Dalyvauti
+    statistics:
+      title: Statistika
+      best_time: Greičiausias laikas
+      best_time_by_level: Greičiausias laikas pagal lygį
+
   game_participations:
     level: "%{level} Lygis"
     enter_code: Įvesti kodą

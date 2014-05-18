@@ -2,3 +2,6 @@
 
 <%= render 'form' %>
 
+<% content_for :bottom_scripts do %>
+  <%= javascript_include_tag 'controllers/games' %>
+<% end %>

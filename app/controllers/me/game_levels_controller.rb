@@ -10,14 +10,10 @@ class Me::GameLevelsController < ApplicationController
   end
 
   def create
-    @game_level = game.levels.build(game_level_params)
+    @game_level = game.levels.build
 
-    if @game_level.save
-      redirect_to my_game_levels_path
-    else
-      flash[:error] = @game_level.errors.messages
-      render :new, status: :conflict
-    end
+    create_record(@game_level, game_level_params,
+      redirect: Proc.new { |record| edit_my_game_level_path(id: record.id, game_id: game.id) })
   end
 
   def edit
@@ -26,27 +22,29 @@ class Me::GameLevelsController < ApplicationController
 
   def update
     @game_level = find_game_level
-    @game_level.attributes = game_level_params
 
-    if @game_level.save
-      redirect_to my_game_levels_path
-    else
-      flash[:error] = @game_level.errors.messages
-      render :edit, status: :conflict
-    end
+    update_record(@game_level, game_level_params, redirect: path_to_edit_level)
   end
 
   def destroy
     @game_level = find_game_level
     @game_level.destroy
 
-    redirect_to edit_my_game_path(game)
+    redirect_to my_game_levels_path(id: game.id)
   end
 
   private
 
+  def path_to_edit_level
+    edit_my_game_level_path(id: @game_level.id, game_id: game.id)
+  end
+
   def game
     @game ||= @current_user.games.find(params[:game_id])
+  end
+
+  def game_level
+    @game_level ||= find_game_level
   end
 
   def find_game_level
@@ -61,7 +59,7 @@ class Me::GameLevelsController < ApplicationController
     if params[:game_level]
       params
         .require(:game_level)
-        .permit(:sort, :description, :code)
+        .permit(:sort, :title, :description, :code)
     end
   end
 end

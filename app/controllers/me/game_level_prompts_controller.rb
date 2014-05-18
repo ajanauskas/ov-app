@@ -6,14 +6,9 @@ class Me::GameLevelPromptsController < ApplicationController
   end
 
   def create
-    @game_level_prompt = game_level.prompts.build(game_level_prompt_params)
+    @game_level_prompt = game_level.prompts.build
 
-    if @game_level_prompt.save
-      redirect_to edit_my_game_level_path(game_id: game.id, id: game_level.id)
-    else
-      flash[:error] = @game_level_prompt.errors.messages
-      render :new, status: :conflict
-    end
+    create_record(@game_level_prompt, game_level_prompt_params, redirect: path_to_edit_level)
   end
 
   def edit
@@ -22,14 +17,8 @@ class Me::GameLevelPromptsController < ApplicationController
 
   def update
     @game_level_prompt = find_game_level_prompt
-    @game_level_prompt.attributes = game_level_prompt_params
 
-    if @game_level_prompt.save
-      redirect_to edit_my_game_level_path(game_id: game.id, id: game_level.id)
-    else
-      flash[:error] = @game_level_prompt.errors.messages
-      render :edit, status: :conflict
-    end
+    update_record(@game_level_prompt, game_level_prompt_params, redirect: path_to_edit_level)
   end
 
   def destroy
@@ -40,6 +29,10 @@ class Me::GameLevelPromptsController < ApplicationController
   end
 
   private
+
+  def path_to_edit_level
+    edit_my_game_level_path(id: game_level.id, game_id: game.id)
+  end
 
   def game
     @game ||= @current_user.games.find(params[:game_id])

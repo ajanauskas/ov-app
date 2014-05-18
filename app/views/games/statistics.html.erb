@@ -1,0 +1,35 @@
+<%= header_and_page_title(t('.title')) %>
+
+<h3><%= t('.best_time') %></h3>
+<%
+  best_times = @team_completion_time.sort_by do |completion_hash|
+    completion_hash[1][:time]
+  end
+%>
+
+<ul>
+  <% best_times.each do |best_time| %>
+    <% team = @teams_participated.find { |t| t.id == best_time[0] } %>
+    <% time = best_time[1][:time].to_i %>
+    <li><%= team.name %> - <%= "#{(time / 60 / 60).to_i} valandų #{(time / 60).to_i} minučių" %></li>
+  <% end %>
+</ul>
+
+<h3><%= t('.best_time_by_level') %></h3>
+
+<% @game_levels.each do |level| %>
+  <%
+    best_times = @team_completion_time.sort_by do |completion_hash|
+      completion_hash[1][:levels][level.id]
+    end
+  %>
+  <h5><%= level.title %></h5>
+
+  <ul>
+    <% best_times.each do |best_time| %>
+      <% team = @teams_participated.find { |t| t.id == best_time[0] } %>
+      <% time = best_time[1][:levels][level.id].to_i %>
+      <li><%= team.name %> - <%= "#{(time / 60 / 60).to_i} valandų #{(time / 60).to_i} minučių" %></li>
+    <% end %>
+  </ul>
+<% end %>

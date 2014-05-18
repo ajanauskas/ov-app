@@ -34,6 +34,7 @@ OvApp::Application.routes.draw do
   end
 
   resources :games, only: [:index] do
+    get :statistics
     resource :team_game_participation,
              controller: 'game_participations',
              path: '/play',

@@ -6,7 +6,5 @@ class GameLevel < ActiveRecord::Base
 
   default_scope -> { order('sort ASC') }
 
-  validates :sort, presence: true
-  validates :description, presence: true
-  validates :code, presence: true
+  validates :sort, :description, :code, :title, presence: true
 end

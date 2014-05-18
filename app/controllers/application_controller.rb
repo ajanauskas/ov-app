@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   def update_record(record, attributes, redirect: nil)
     if record.update(attributes)
       flash[:notice] = I18n.t('common.record_updated')
-      redirect_to redirect
+      redirect_to redirect.is_a?(Proc) ? redirect.call(record) : redirect
     else
       flash[:error] = record.errors.messages
       render :edit, status: :conflict
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
 
     if record.save(params)
       flash[:notice] = I18n.t('common.record_updated')
-      redirect_to redirect
+      redirect_to redirect.is_a?(Proc) ? redirect.call(record) : redirect
     else
       flash[:error] = record.errors.messages
       render :new, status: :conflict

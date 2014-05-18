@@ -10,7 +10,7 @@
       <%= GameLevel.human_attribute_name(:sort) %>
     </th>
     <th class="col-sm-3">
-      <%= GameLevel.human_attribute_name(:description) %>
+      <%= GameLevel.human_attribute_name(:title) %>
     </th>
     <th class="col-sm-1">
       <%= GameLevel.human_attribute_name(:code) %>
@@ -25,7 +25,7 @@
           <%= game_level.sort %>
         </td>
         <td>
-          <%= game_level.description %>
+          <%= game_level.title %>
         </td>
         <td>
           <%= game_level.code %>
